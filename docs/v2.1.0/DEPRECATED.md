@@ -9,7 +9,7 @@ The `v2.1.0` release is a significant update to the OCI Terraform Provider.
 
 We are not introducing any backwards-incompatible change with this release.
 
-However, some of the fields and functionality that we used to support and no longer supported by the backend APIs.
+However, some of the fields and functionality that we used to support are no longer supported by the backend APIs.
 In addition, some of the fields have been renamed.
 
 We are deprecating the fields that have been impacted by such backend API changes with this release.
@@ -21,17 +21,17 @@ However, in subsequent releases, these fields may be removed from the OCI Terraf
 The following is the list of fields that we are deprecating in the OCI Terraform Provider release.
 
 - `time_modified` has been deprecated for the following resources -
-  * oci_core_internet_gateway
-  * oci_core_route_table  
-  * oci_identity_compartment
-  * oci_identity_group
-  * oci_identity_policy
-  * oci_identity_user
+  * `oci_core_internet_gateway`
+  * `oci_core_route_table`
+  * `oci_identity_compartment`
+  * `oci_identity_group`
+  * `oci_identity_policy`
+  * `oci_identity_user`
 
 #### Soon to be deprecated
 There are some fields that we did not deprecate in the current release.
 
-However, these fields will be deprecated in subsequent releases because of changes made in the backend APIs.
+However, these fields will be deprecated in subsequent releases because of various reasons.
 
 The following are the fields that will be deprecated soon -
 
@@ -41,6 +41,11 @@ The following are the fields that will be deprecated soon -
   * `oci_identity_user_group_membership`
   
 - `image` in `oci_core_instance` will be deprecated once OCI Terraform Provider starts supporting `sourceDetails`.
+
+- `oci_core_vcn` is the new name for the `oci_core_virtual_network` resource.
+  `oci_core_vcns` is the new name for the `oci_core_virtual_networks` data store.
+  Using the old names is still supported with this release. But we recommend using the new names going forward.
+
 
 ## OCI resource and datasource details
 [comment]: <> (TODO: Fix docs link before release)

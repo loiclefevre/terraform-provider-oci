@@ -42,7 +42,7 @@ The following are the changes to the filter functionality in some data sources -
   * `oci_core_route_tables`
   * `oci_core_security_lists`
   * `oci_core_subnets`
-  * `oci_core_vcns` (legacy name: `oci_core_virtual_networks`)
+  * `oci_core_vcns`
   * `oci_core_volume_backups`
   * `oci_core_volumes`
 
@@ -61,7 +61,7 @@ The following are the changes in the resources -
 - `oci_core_ipsec` now has the optional field `id`
 - `oci_core_subnet` has a new computed field `subnet_domain_name`
 - `oci_core_vnic_attachment` has a new optional and forceNew field `nic_index`
-- `oci_core_virtual_network` now has computed field `vcn_domain_name`
+- `oci_core_vcn` now has computed field `vcn_domain_name`
 - `oci_core_volume` now has computed field `is_hydrated`
 - `oci_database_db_system` now has computed field `last_patch_history_entry_id`
 - `oci_load_balancer_backend` now has computed field `name`
