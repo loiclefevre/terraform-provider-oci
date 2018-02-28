@@ -11,22 +11,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - New server-side filter fields have been added for some data sources
 - Several resources and data sources now allow new fields in their configurations, enabling functionality that was missing in the OCI provider earlier.
 
-The full details of added functionality is available [here](add-link)
+[comment]: <> (TODO: The full list of added fields is available here)
 
 ### Deprecated
 - Several fields that are not supported by the backend services have been deprecated.
 
-The full list of deprecated fields is available [here](add-link)
+[comment]: <> (TODO: The full list of deprecated fields is available here)
 
 ### Fixed
 - Several bug fixes have been made.
 
-The full list of bug fixes is available [here](add-link)
+[comment]: <> (TODO: The full list of bug fixes is available here)
 
 ### Notes
 - This is a significant update of the OCI Terraform Provider. This is an internal beta release.
 - If upgrading from v1, see [this wiki](https://github.com/oracle/terraform-provider-oci/wiki/Oracle-Terraform-Provider-Name-Change) for migration steps.
-- See docs for this version [here](https://github.com/oracle/terraform-provider-oci/tree/v2.0.6).
+
+[comment]: <> (TODO: Fix release tag below)
+- See docs for this version [here](https://github.com/oracle/terraform-provider-oci/tree/v2.1.0-beta).
 
 ## 2.0.6 - 2018-01-08
 
