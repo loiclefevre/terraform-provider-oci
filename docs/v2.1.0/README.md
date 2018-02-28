@@ -15,6 +15,37 @@ We are doing an beta release (`v2.1.0-beta`) for this version signaling our inte
 
 Please look at the documentation under this directory to see what facilities were [added](ADDED.md), which fields were [deprecated](DEPRECATED.md) and what bugs were [fixed](FIXED.md).
 
+## General notice
+In addition to the changes mentioned above, we are also issuing the following guidelines starting with this release.
+
+#### Identity resources
+The backend APIs for all `identity` resources actually require a `compartment_id` value to be passed in.
+Currently, the APIs require the `OCID` of the `tenancy` to be passed in as the `compartment_id`.
+
+However, introducing that requirement (of passing in `compartment_id`) with this release could have caused some backwards-incompatible changes.
+
+Hence, with this release, we have added `compartment_id` as an optional field for the `Identity` resources.
+If the Terraform configurations do not provide the `compartment_id`, the OCI Provider code uses the `OCID` of the `tenancy`, behind the scenes, to call the services.
+
+We advise our users to start specifying the `compartment_id` in their Terraform configurations for their `identity` resources.
+
+#### Computed fields
+With this release, several fields in several resources have `optional=true` and `computed=true` set. These changes were driven by the backend API interfaces.
+
+We want to draw attention to a consequence of this change. The following steps help explain what happens -
+
+- Don't specify a value to the optional field. Run `terraform apply` to create the resource.
+- The service assigns some default value, and returns it back to the client.
+- Being a computed field, this default value is saved the the Terraform state file.
+- Now add a value to the optional field in your Terraform configuration file, and apply.
+- Now resource is updated, and the Terraform state file is updated accordingly with the value you entered.
+- Now delete the optional field from your Terraform configuration, and do a `terraform plan`
+- No difference is detected.
+
+This happens because of how the Terraform diff-ing algorithm works. Please be aware of this.
+
+
+
 ## OCI resource and datasource details
 [comment]: <> (TODO: Fix docs link before release)
 https://github.com/oracle/terraform-provider-oci/tree/preview/docs
