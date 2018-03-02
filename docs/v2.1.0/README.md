@@ -34,13 +34,13 @@ With this release, several fields in several resources have `optional=true` and 
 
 We want to draw attention to a consequence of this change. The following steps help explain what happens -
 
-- Don't specify a value to the optional field. Run `terraform apply` to create the resource.
-- The service assigns some default value, and returns it back to the client.
-- Being a computed field, this default value is saved the the Terraform state file.
-- Now add a value to the optional field in your Terraform configuration file, and apply.
-- Now resource is updated, and the Terraform state file is updated accordingly with the value you entered.
-- Now delete the optional field from your Terraform configuration, and do a `terraform plan`
-- No difference is detected.
+1. Don't specify a value to the optional field. Run `terraform apply` to create the resource.
+2. The service assigns some default value, and returns it back to the client.
+3. Being a computed field, this default value is saved the the Terraform state file.
+4. Now add a value to the optional field in your Terraform configuration file, and apply.
+5. Now resource is updated, and the Terraform state file is updated accordingly with the value you entered.
+6. Now delete the optional field from your Terraform configuration, and do a `terraform plan`
+7. No difference is detected.
 
 This happens because of how the Terraform diff-ing algorithm works. Please be aware of this.
 
